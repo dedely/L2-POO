@@ -1,7 +1,7 @@
 package infos;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.tika.Tika;
+//import org.apache.tika.Tika;
 /**
  * @author Adel
  * 
@@ -18,8 +18,8 @@ public class Extension {
 	    
 	}
 		
-	public String getMimeUsingTika(String fileName){
+	/*public String getMimeUsingTika(String fileName){
 		Tika tika = new Tika();
 		return tika.detect(fileName);
-	}
+	}*/
 }
