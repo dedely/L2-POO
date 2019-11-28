@@ -7,7 +7,7 @@ public class TestExtension {
 		Extension testClass = new Extension();
 		System.out.println(testClass.getExtensionUsingApacheCommonLib(test));
 		System.out.println(testClass.getMimeUsingTika(test));
-		if (args[0].equals("-f")) {
+		/*if (args[0].equals("-f")) {
 			System.out.println("c'est l'analyse d'un fichier que vous souhaitez lancer\n");
 			Fichier fic = new Fichier (args[1]);
 			fic.read();
@@ -23,6 +23,6 @@ public class TestExtension {
 			System.out.println("-d : analyse dossier");
 			System.out.println("-s : sauvegarde d'une analyse");
 			System.out.println("-h : help");
-		}
+		}*/
 	}
 }
