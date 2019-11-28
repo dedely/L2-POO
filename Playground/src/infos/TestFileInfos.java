@@ -7,5 +7,6 @@ public class TestFileInfos {
 		FileInfos testClass = new FileInfos();
 		System.out.println(testClass.getExtensionUsingApacheCommonLib(test));
 		System.out.println(testClass.getMimeUsingTika(test));
+		//Command 
 	}
 }
