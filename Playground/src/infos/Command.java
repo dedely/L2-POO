@@ -1,34 +1,27 @@
 package infos;
 
 public class Command {
-	private String command;
+	private String[] commands;
 
-	public Command (String command) {
-		this.command = command;
+	public Command(String[] commands) {
+		this.commands = commands;
 
 	}
 
-	public String instruction() {
+	public String instruction() throws UnknownCommandException {
 		String tmp = "";
-		if (command.equals("-f")) {
-			tmp += "c'est l'analyse d'un fichier que vous souhaitez lancer\n";
-		}
-		
-		if (command.equals("-d")) {
-			tmp += "c'est l'analyse d'un dossier que vous souhaitez lancer\n";
-		}
-
-		if (command.equals("-h")) {
-			tmp += "Liste de commande :\n";
-			tmp += "-f : analyse fichier\n";
-			tmp += "-d : analyse dossier\n";
-			tmp += "-s : sauvegarde d'une analyse\n";
-			tmp += "-h : help\n";
+		for (String s : commands) {
+			switch (s.toLowerCase()) {
+			case "-f":
+				tmp += "c'est l'analyse d'un fichier que vous souhaitez lancer\n";
+				break;
+			case "-h":
+				tmp += "Liste de commande :\n";
+				break;
+			default:
+				throw new UnknownCommandException(s);
+			}
 		}
 		return tmp;
-	}
-
-	public String toString() {
-		return instruction();
 	}
 }
