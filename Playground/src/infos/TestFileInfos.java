@@ -18,8 +18,7 @@ public class TestFileInfos {
 			System.err.println(uce.getMessage());
 
 		 */
-		for(int i=0;i<args.length;i++) 
-			System.out.println(args[i]);
+		
 		if (args[0].equals("-f")) {
 			System.out.println("c'est l'analyse d'un fichier que vous souhaitez lancer\n");
 			Fichier fic = new Fichier (args[1]);
