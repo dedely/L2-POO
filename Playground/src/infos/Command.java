@@ -48,6 +48,7 @@ public class Command {
 			System.err.println(e.getMessage());
 		}
 		System.out.println(fileAnalysis.checkMime().toString());
+		System.out.println(fileAnalysis.searchSignatureInFile().toString());
 	}
 
 	public void folderAnalysis() {
