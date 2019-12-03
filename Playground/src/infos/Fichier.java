@@ -25,7 +25,7 @@ public class Fichier {
 		catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 		}
-		FileInfos testClass = new FileInfos();
+		File testClass = new File();
 		this.extension = testClass.getExtensionUsingApacheCommonLib(name);
 		System.out.println(testClass.getExtensionUsingApacheCommonLib(name));
 		this.mime=testClass.getMimeUsingTika(name);
