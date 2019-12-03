@@ -35,7 +35,7 @@ public class Command {
 	}
 
 	public void fileAnalysis(String fileName) throws FileNotFoundException {
-		File file = new File(fileName);
+		FileInfo file = new FileInfo(fileName);
 		Analysis fileAnalysis = new Analysis(file);
 		try {
 			String tmp = "";

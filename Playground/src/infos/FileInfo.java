@@ -7,12 +7,12 @@ import org.apache.tika.Tika;
  * 
  * 
  */
-public class File {
+public class FileInfo {
 	private String fileName;
 	private String fileExtension;
 	private String fileMimeType;
 	
-	public File(String fileName) {
+	public FileInfo(String fileName) {
 		this.fileName = fileName;
 		fileExtension = getExtensionUsingApacheCommonLib(this.fileName);
 		fileMimeType = getMimeUsingTika(this.fileName);

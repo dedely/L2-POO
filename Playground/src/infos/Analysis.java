@@ -13,10 +13,10 @@ import java.util.Scanner;
 public class Analysis {
 	private static String DATABASE = "signatures.csv";
 	public final static String SEPARATOR = ";";
-	private File file;
+	private FileInfo file;
 	private String[] extensionInfos;
 	
-	public Analysis(File file) {
+	public Analysis(FileInfo file) {
 		this.file = file;
 		try {
 			extensionInfos = searchExtensionInfosInDatabase();
