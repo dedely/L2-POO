@@ -64,6 +64,10 @@ public class Analysis {
             in = new BufferedReader(new FileReader(file.getFileName()));
             while(((line = in.readLine()) != null) && !foundSignature) {
                 foundSignature = line.indexOf(extensionInfos[2]) >= 0;
+                if (line.charAt(line.indexOf(extensionInfos[2])-1)=='/') {
+                	foundSignature = false;
+                	System.out.println("lourd");
+                }
             }
         }
         catch(IOException e) {
