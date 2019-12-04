@@ -59,18 +59,19 @@ public class Analysis {
 	
 	public Boolean searchSignatureInFile() {
 		boolean foundSignature = false;
-		Scanner in = null;
+		String line;
+		BufferedReader in = null;
         try {
-            in = new Scanner(new FileReader(file.getFileName()));
-            while(in.hasNextLine() && !foundSignature) {
-                foundSignature = in.nextLine().indexOf(extensionInfos[2]) >= 0;
+            in = new BufferedReader(new FileReader(file.getFileName()));
+            while(((line = in.readLine()) != null) && !foundSignature) {
+                foundSignature = line.indexOf(extensionInfos[2]) >= 0;
             }
         }
         catch(IOException e) {
-            e.printStackTrace();      
+            e.printStackTrace(); 
         }
         finally {
-            try { in.close() ; } catch(Exception e) { /* ignore */ }  
+            try { in.close() ; } catch(Exception e) {}  
         }
         return foundSignature;
 	}
