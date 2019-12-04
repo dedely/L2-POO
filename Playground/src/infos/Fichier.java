@@ -38,6 +38,7 @@ public class Fichier {
 	{
 		String line="";
 		try {
+			System.out.println("\nContenu du fichier : \n ");
 			BufferedReader reader = new BufferedReader(fr);
 			while((line=reader.readLine())!=null) 
 				System.out.println(line);
@@ -109,8 +110,20 @@ public class Fichier {
 		else {
 			System.out.println(" votre fichier semble etre un fichier " + this.extension);
 		}
-	
-
+	}
+		public void read2() {
+			String line="";
+			try {
+				System.out.println("\nContenu du fichier2 : \n ");
+				BufferedReader reader = new BufferedReader(fr);
+				while((line=reader.readLine())!=null) 
+					System.out.println(line);
+				reader.close();
+			}
+			catch(IOException e) {
+				System.err.println(e.getMessage());
+			}
+		}
 
 	}
-}
+
