@@ -11,14 +11,10 @@ public class Command {
 	}
 
 	public void runCommand() throws UnknownCommandException {
-		if (commands.length> 0)  {
+		if (commands.length > 0) {
 			switch (commands[0].toLowerCase()) {
 			case "-f":
-				try {
-					fileAnalysis(commands[1]);
-				} catch (FileNotFoundException e) {
-					System.err.println(e.getMessage());
-				}
+				fileAnalysis(commands[1]);
 				break;
 			case "-d":
 				folderAnalysis();
@@ -29,26 +25,33 @@ public class Command {
 			default:
 				throw new UnknownCommandException(commands[0]);
 			}
-		}else {
+		} else {
 			help();
 		}
 	}
 
-	public void fileAnalysis(String fileName) throws FileNotFoundException {
-		FileInfo file = new FileInfo(fileName);
-		Analysis fileAnalysis = new Analysis(file);
+	public void fileAnalysis(String fileName) {
 		try {
-			String tmp = "";
-			String[] result = fileAnalysis.searchExtensionInfosInDatabase();
-			for (int index = 0; index < result.length; index++) {
-				tmp += result[index] + "\t";
+			FileInfo file = new FileInfo(fileName);
+			Analysis fileAnalysis = new Analysis(file);
+			try {
+				String tmp = "";
+				String[] result = fileAnalysis.searchExtensionInfosInDatabase();
+				for (int index = 0; index < result.length; index++) {
+					tmp += result[index] + "\t";
+				}
+				System.out.println(tmp);
+			} catch (ExtensionNotFoundException e) {
+				System.err.println(e.getMessage());
 			}
-			System.out.println(tmp);
-		} catch (ExtensionNotFoundException e) {
+			System.out.println(fileAnalysis.checkMime().toString());
+			System.out.println(fileAnalysis.searchSignatureInFile().toString());
+
+		} catch (NullPointerException e) {
+			System.err.println((e.getMessage()));
+		} catch(FileNotFoundException e) {
 			System.err.println(e.getMessage());
 		}
-		System.out.println(fileAnalysis.checkMime().toString());
-		System.out.println(fileAnalysis.searchSignatureInFile().toString());
 	}
 
 	public void folderAnalysis() {
