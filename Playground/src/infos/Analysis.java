@@ -61,7 +61,7 @@ public class Analysis {
 		String line;
 		BufferedReader in = null;
         try {
-            in = new BufferedReader(new FileReader(file.getFileName()));
+            in = new BufferedReader(new FileReader(file.getName()));
             while(((line = in.readLine()) != null) && !foundSignature) {
                 foundSignature = line.indexOf(extensionInfos[2]) >= 0;
                 if (line.charAt(line.indexOf(extensionInfos[2])-1)=='/') {
