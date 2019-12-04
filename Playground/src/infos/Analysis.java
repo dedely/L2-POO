@@ -5,10 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
- * @author Adel
- *
- */
+
 public class Analysis {
 	private static String DATABASE = "signatures.csv";
 	public final static String SEPARATOR = ";";
@@ -64,9 +61,9 @@ public class Analysis {
             in = new BufferedReader(new FileReader(file.getName()));
             while(((line = in.readLine()) != null) && !foundSignature) {
                 foundSignature = line.indexOf(extensionInfos[2]) >= 0;
-                if (line.charAt(line.indexOf(extensionInfos[2])-1)=='/') {
+                /*if (line.charAt(line.indexOf(extensionInfos[2])-1)=='/') {
                 	foundSignature = false;
-                }
+                }*/
             }
         }
         catch(IOException e) {
