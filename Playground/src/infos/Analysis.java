@@ -66,7 +66,6 @@ public class Analysis {
                 foundSignature = line.indexOf(extensionInfos[2]) >= 0;
                 if (line.charAt(line.indexOf(extensionInfos[2])-1)=='/') {
                 	foundSignature = false;
-                	System.out.println("lourd");
                 }
             }
         }
