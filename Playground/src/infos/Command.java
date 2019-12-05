@@ -17,7 +17,7 @@ public class Command {
 				fileAnalysis(commands[1]);
 				break;
 			case "-d":
-				folderAnalysis();
+				folderAnalysis(commands[1]);
 				break;
 			case "-h":
 				help();
@@ -56,8 +56,9 @@ public class Command {
 		}
 	}
 
-	public void folderAnalysis() {
-
+	public void folderAnalysis(String folderName) {
+		Folder folder = new Folder(folderName);
+		System.out.println(folder.toString());
 	}
 
 	public void help() {
