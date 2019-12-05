@@ -7,6 +7,7 @@ public class Folder {
 	public ArrayList<FileInfo> files;
 	
 	public Folder() {
-		
+		files = new ArrayList<FileInfo>();
 	}
+	
 }

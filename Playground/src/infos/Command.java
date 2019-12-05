@@ -44,6 +44,7 @@ public class Command {
 			} catch (ExtensionNotFoundException e) {
 				System.err.println(e.getMessage());
 			}
+			System.out.println(file);
 			System.out.println(fileAnalysis.checkMime().toString());
 			System.out.println(fileAnalysis.searchSignatureInFile().toString());
 
