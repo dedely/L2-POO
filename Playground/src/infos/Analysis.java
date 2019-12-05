@@ -64,6 +64,7 @@ public class Analysis {
                 /*if (line.charAt(line.indexOf(extensionInfos[2])-1)=='/') {
                 	foundSignature = false;
                 }*/
+                foundSignature = line.indexOf(extensionInfos[2]) >= 0;
             }
         }
         catch(IOException e) {

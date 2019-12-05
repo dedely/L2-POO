@@ -43,5 +43,6 @@ public class FileInfo extends File {
 	}
 	public String toString() {
 		return " nom de fichier : " + super.getName() + "\n caractéristiques :\n "+ fileExtension + " " + fileMimeType;
+
 	}
 }
