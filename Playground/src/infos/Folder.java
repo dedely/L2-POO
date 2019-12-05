@@ -21,8 +21,8 @@ public class Folder {
 			File[] fileInfos = f.listFiles();
 			for (File file : fileInfos) {
 				if (file.isDirectory()) {
-					remplissage(file.getPath());
-				}else {
+					remplissage(file.getPath()); //Folders are not added to the ArrayList.
+				} else {
 					files.add(file);
 				}
 			}
