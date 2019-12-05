@@ -21,12 +21,12 @@ public class Folder {
 			File[] fileInfos = f.listFiles();
 			for (File file : fileInfos) {
 				if (file.isDirectory()) {
-					remplissage(folderName + "/" + file);
+					remplissage(file.getPath());
 				}
 				files.add(file);
 			}
 		} catch (Exception e) {
-			System.err.println("Fichier introuvable\n");
+			System.err.println(e.getMessage());
 		}
 	}
 
