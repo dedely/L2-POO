@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Analysis {
 	private static String DATABASE = "signatures.csv";
 	public final static String SEPARATOR = ";";
-	private FileInfo file;
+	protected FileInfo file;
 	private String[] extensionInfos;
 
 	public Analysis(FileInfo file) {

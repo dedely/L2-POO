@@ -37,7 +37,22 @@ public class Command {
 	public void fileAnalysis(String fileName) {
 		try {
 			FileInfo file = new FileInfo(fileName);
+<<<<<<< Upstream, based on branch 'master' of http://github.com/JustAdel/L2-POO
+=======
+			AnalysisPushed fileAnalysis = new AnalysisPushed(file);
+			try {
+				String tmp = "";
+				String[] result = fileAnalysis.searchExtensionInfosInDatabase();
+				for (int index = 0; index < result.length; index++) {
+					tmp += result[index] + "\t";
+				}
+				System.out.println(tmp);
+			} catch (ExtensionNotFoundException e) {
+				System.err.println(e.getMessage());
+			}
+>>>>>>> 2a2d6de Nouvelle classe : AnalysisPushed. Héritée de Analysis, elle permet de
 			System.out.println(file);
+<<<<<<< Upstream, based on branch 'master' of http://github.com/JustAdel/L2-POO
 			Analysis fileAnalysis = new Analysis(file);
 			if (fileAnalysis.getExtensionInfos() != null) {
 				// Si l'extension ne fait pas partie de la base de donn�es, on ne dispose pas
@@ -50,6 +65,17 @@ public class Command {
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 		}
+=======
+			System.out.println(fileAnalysis.checkMime().toString());
+			System.out.println(fileAnalysis.searchSignatureInFile().toString());
+			fileAnalysis.unzip();
+
+		} catch (NullPointerException e) {
+			System.err.println((e.getMessage()));
+		} catch(FileNotFoundException e) {
+			System.err.println(e.getMessage());
+		}
+>>>>>>> 2a2d6de Nouvelle classe : AnalysisPushed. Héritée de Analysis, elle permet de
 	}
 
 	public void folderAnalysis(String folderName) {
