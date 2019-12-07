@@ -83,7 +83,7 @@ public class Analysis {
 		String tmp = "";
 		if (extensionInfos != null) {
 			for (String str : extensionInfos) {
-				tmp += str;
+				tmp += " " + str;
 			}
 		}
 		return tmp;

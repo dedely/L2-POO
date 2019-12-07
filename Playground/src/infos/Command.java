@@ -38,12 +38,13 @@ public class Command {
 			FileInfo file = new FileInfo(fileName);
 			System.out.println(file);
 			Analysis fileAnalysis = new Analysis(file);
-			if(fileAnalysis.getExtensionInfos() != null) {
-				//Si l'extension ne fait pas partie de la base de données, on ne dispose pas d'informations, l'analyse n'est pas effectuée: 
-				//Les méthodes qui utilisent la base, ne sont pas appelées.
-				System.out.println(fileAnalysis.toString());
-				System.out.println(fileAnalysis.checkMime().toString());
-				System.out.println(fileAnalysis.searchSignatureInFile().toString());
+			if (fileAnalysis.getExtensionInfos() != null) {
+				// Si l'extension ne fait pas partie de la base de données, on ne dispose pas
+				// d'informations, l'analyse n'est pas effectuée:
+				// Les méthodes qui utilisent la base, ne sont pas appelées.
+				System.out.println("Database information: " + fileAnalysis.toString());
+				System.out.println("Matching MIME type: " + fileAnalysis.checkMime().toString());
+				System.out.println("Found file signature: " + fileAnalysis.searchSignatureInFile().toString());
 			}
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
