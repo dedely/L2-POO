@@ -20,7 +20,7 @@ public class FileInfo extends File {
 			fileExtension = getExtensionUsingApacheCommonLib(getName());
 			fileMimeType = getMimeUsingTika(getName());
 		} else {
-			throw new FileNotFoundException();
+			throw new FileNotFoundException("Fichier non trouvé");
 		}
 	}
 

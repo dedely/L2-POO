@@ -5,18 +5,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-
 public class Analysis {
 	private static String DATABASE = "signatures.csv";
 	public final static String SEPARATOR = ";";
 	private FileInfo file;
 	private String[] extensionInfos;
-	
+
 	public Analysis(FileInfo file) {
 		this.file = file;
 		try {
 			extensionInfos = searchExtensionInfosInDatabase();
-		}catch (ExtensionNotFoundException e) {
+		} catch (ExtensionNotFoundException e) {
 			System.err.println(e.getMessage());
 		}
 	}
@@ -42,37 +41,51 @@ public class Analysis {
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
-		if (fields == null) {
+		if (foundExtensionInDatabase == false) {
 			throw new ExtensionNotFoundException();
 		} else {
 			return fields;
 		}
 	}
-	
+
 	public Boolean checkMime() {
-		return extensionInfos[1].equals(file.getMimeType());
+			return extensionInfos[1].equals(file.getMimeType());
 	}
-	
+
 	public Boolean searchSignatureInFile() {
 		boolean foundSignature = false;
 		String line;
 		BufferedReader in = null;
-        try {
-            in = new BufferedReader(new FileReader(file.getName()));
-            while(((line = in.readLine()) != null) && !foundSignature) {
-                foundSignature = line.indexOf(extensionInfos[2]) >= 0;
-                /*if (line.charAt(line.indexOf(extensionInfos[2])-1)=='/') {
-                	foundSignature = false;
-                }*/
-                foundSignature = line.indexOf(extensionInfos[2]) >= 0;
-            }
-        }
-        catch(IOException e) {
-            e.printStackTrace(); 
-        }
-        finally {
-            try { in.close() ; } catch(Exception e) {}  
-        }
-        return foundSignature;
+		try {
+			in = new BufferedReader(new FileReader(file.getPath()));
+			while (((line = in.readLine()) != null) && !foundSignature) {
+				foundSignature = line.indexOf(extensionInfos[2]) >= 0;
+				/*
+				 * if (line.charAt(line.indexOf(extensionInfos[2])-1)=='/') { foundSignature =
+				 * false; }
+				 */
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				in.close();
+			} catch (Exception e) {
+			}
+		}
+		return foundSignature;
+	}
+
+	public String[] getExtensionInfos() {
+		return extensionInfos;
+	}
+	public String toString() {
+		String tmp = "";
+		if (extensionInfos != null) {
+			for (String str : extensionInfos) {
+				tmp += str;
+			}
+		}
+		return tmp;
 	}
 }
