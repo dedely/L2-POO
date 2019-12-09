@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Analysis {
-	private static String DATABASE = "ressources/signatures.csv";
+	private static String DATABASE = "resources/signatures.csv";
 	public final static String SEPARATOR = ";";
 	protected FileInfo file;
 	private String[] extensionInfos;
