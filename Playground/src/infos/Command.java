@@ -41,6 +41,7 @@ public class Command {
 			//AnalysisPushed fileAnalysis = new AnalysisPushed(file);
 
 			Analysis fileAnalysis = new Analysis(file);
+			System.out.println(file);
 			if (fileAnalysis.getExtensionInfos() != null) {
 				// Si l'extension ne fait pas partie de la base de données, on ne dispose pas
 				// d'informations, l'analyse n'est pas effectuée:
