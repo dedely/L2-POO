@@ -38,23 +38,21 @@ public class Command {
 		try {
 			FileInfo file = new FileInfo(fileName);
 			System.out.println(file);
-			//AnalysisPushed fileAnalysis = new AnalysisPushed(file);
-			Analysis fileAnalysis = new Analysis(file);
-			if (fileAnalysis.getExtensionInfos() != null) {
+			AnalysisPushed fileAnalysis = new AnalysisPushed(file);
+			//Analysis fileAnalysis = new Analysis(file);
+			/*if (fileAnalysis.getExtensionInfos() != null) {
 				// Si l'extension ne fait pas partie de la base de données, on ne dispose pas
 				// d'informations, l'analyse n'est pas effectuée:
 				// Les méthodes qui utilisent la base, ne sont pas appelées.
 				System.out.println("Available data: " + fileAnalysis.toString());
 				System.out.println("Matching MIME type: " + fileAnalysis.checkMime().toString());
 				System.out.println("Found file signature: " + fileAnalysis.searchSignatureInFile().toString());
-			}
+			}*/
+			
+			fileAnalysis.unzip();
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 		}
-/*
-			System.out.println(fileAnalysis.checkMime().toString());
-			System.out.println(fileAnalysis.searchSignatureInFile().toString());
-			fileAnalysis.unzip();*/
 	}
 
 	public void folderAnalysis(String folderName) {
