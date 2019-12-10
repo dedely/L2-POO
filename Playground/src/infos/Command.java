@@ -13,10 +13,12 @@ public class Command {
 	}
 
 	public void runCommand() throws UnknownCommandException {
-		/*for(String command: commands) {
-			
-		}*/
-		
+		/*
+		 * for(String command: commands) {
+		 * 
+		 * }
+		 */
+
 		if (commands.length > 1) { // POP, à corriger... Cela fonctionne, mais il faudrait trouver une
 									// meilleure façon de gérer les arguments manquants.( je pense à un while)
 			switch (commands[0].toLowerCase()) {
@@ -42,15 +44,17 @@ public class Command {
 		Result analysisResult = null;
 		try {
 			FileInfo file = new FileInfo(fileName);
-			AnalysisPushed fileAnalysis = new AnalysisPushed(file);	
-			analysisResult = new Result(fileAnalysis);	
+			AnalysisPushed fileAnalysis = new AnalysisPushed(file);
+			analysisResult = new Result(fileAnalysis);
 			System.out.println(analysisResult.toString());
-			//analysisResult.save();
 			
+			if (commands.length == 4 && commands[2].equals("-s") ) 		
+				analysisResult.save(commands[3]);
+
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 		}
-			return analysisResult;
+		return analysisResult;
 
 	}
 

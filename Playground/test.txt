@@ -1,0 +1,241 @@
+File name: test.txt
+Characteristics:
+	Extension: txt
+	MIME type: text/plain
+	length: 249
+FoundExtensionInDatabase : true
+Available data:  txt text/plain
+Matching MIME type: true
+Found file signature: true
+
+File name: .classpath
+Characteristics:
+	Extension: classpath
+	MIME type: text/plain
+	length: 598
+FoundExtensionInDatabase : false
+
+File name: .gitignore
+Characteristics:
+	Extension: gitignore
+	MIME type: application/octet-stream
+	length: 6
+FoundExtensionInDatabase : false
+
+File name: .project
+Characteristics:
+	Extension: project
+	MIME type: text/plain
+	length: 386
+FoundExtensionInDatabase : false
+
+File name: org.eclipse.jdt.core.prefs
+Characteristics:
+	Extension: prefs
+	MIME type: application/octet-stream
+	length: 853
+FoundExtensionInDatabase : false
+
+File name: Analysis.class
+Characteristics:
+	Extension: class
+	MIME type: application/java-vm
+	length: 3876
+FoundExtensionInDatabase : false
+
+File name: AnalysisPushed.class
+Characteristics:
+	Extension: class
+	MIME type: application/java-vm
+	length: 3943
+FoundExtensionInDatabase : false
+
+File name: Command.class
+Characteristics:
+	Extension: class
+	MIME type: application/java-vm
+	length: 2802
+FoundExtensionInDatabase : false
+
+File name: ExtensionNotFoundException.class
+Characteristics:
+	Extension: class
+	MIME type: application/java-vm
+	length: 390
+FoundExtensionInDatabase : false
+
+File name: FileInfo.class
+Characteristics:
+	Extension: class
+	MIME type: application/java-vm
+	length: 1943
+FoundExtensionInDatabase : false
+
+File name: Folder.class
+Characteristics:
+	Extension: class
+	MIME type: application/java-vm
+	length: 2410
+FoundExtensionInDatabase : false
+
+File name: Result.class
+Characteristics:
+	Extension: class
+	MIME type: application/java-vm
+	length: 1568
+FoundExtensionInDatabase : false
+
+File name: TestFileInfos.class
+Characteristics:
+	Extension: class
+	MIME type: application/java-vm
+	length: 844
+FoundExtensionInDatabase : false
+
+File name: UnknownCommandException.class
+Characteristics:
+	Extension: class
+	MIME type: application/java-vm
+	length: 555
+FoundExtensionInDatabase : false
+
+File name: signatures.csv
+Characteristics:
+	Extension: csv
+	MIME type: text/csv
+	length: 701
+FoundExtensionInDatabase : false
+
+File name: Fichier.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 3045
+FoundExtensionInDatabase : false
+
+File name: commons-io-2.6.jar
+Characteristics:
+	Extension: jar
+	MIME type: application/java-archive
+	length: 214788
+FoundExtensionInDatabase : false
+
+File name: tika-core-1.22.jar
+Characteristics:
+	Extension: jar
+	MIME type: application/java-archive
+	length: 704498
+FoundExtensionInDatabase : false
+
+File name: lichess.html
+Characteristics:
+	Extension: html
+	MIME type: text/html
+	length: 11128
+FoundExtensionInDatabase : true
+Available data:  html text/html <!DOCTYPE html>
+Matching MIME type: true
+Found file signature: true
+
+File name: phototest.jpg
+Characteristics:
+	Extension: jpg
+	MIME type: image/jpeg
+	length: 2874
+FoundExtensionInDatabase : true
+Available data:  jpg image/jpeg
+Matching MIME type: true
+Found file signature: true
+dimension : width = 259 height = 194
+
+File name: signatures.csv
+Characteristics:
+	Extension: csv
+	MIME type: text/csv
+	length: 701
+FoundExtensionInDatabase : false
+
+File name: Analysis.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 2986
+FoundExtensionInDatabase : false
+
+File name: AnalysisPushed.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 3021
+FoundExtensionInDatabase : false
+
+File name: Command.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 2089
+FoundExtensionInDatabase : false
+
+File name: ExtensionNotFoundException.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 178
+FoundExtensionInDatabase : false
+
+File name: FileInfo.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 1347
+FoundExtensionInDatabase : false
+
+File name: Folder.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 1245
+FoundExtensionInDatabase : false
+
+File name: Result.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 1152
+FoundExtensionInDatabase : false
+
+File name: TestFileInfos.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 269
+FoundExtensionInDatabase : false
+
+File name: UnknownCommandException.java
+Characteristics:
+	Extension: java
+	MIME type: text/x-java-source
+	length: 172
+FoundExtensionInDatabase : false
+
+File name: td1.zip
+Characteristics:
+	Extension: zip
+	MIME type: application/zip
+	length: 1371
+FoundExtensionInDatabase : true
+Available data:  zip application/x-zip-compressed PK
+Matching MIME type: false
+Found file signature: true
+Unzipped: true
+
+File name: test.txt
+Characteristics:
+	Extension: txt
+	MIME type: text/plain
+	length: 4794
+FoundExtensionInDatabase : true
+Available data:  txt text/plain
+Matching MIME type: true
+Found file signature: true
+

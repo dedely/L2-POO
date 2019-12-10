@@ -23,7 +23,7 @@ public class Result {
 	
 	public void save(String fileName) {
 		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true)); //Here true is to append the content to file
 				//VI
 				String fileInfos = an.getFile().toString();
 				String anResult = an.toString();
