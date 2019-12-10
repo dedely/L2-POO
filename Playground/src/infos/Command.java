@@ -13,6 +13,10 @@ public class Command {
 	}
 
 	public void runCommand() throws UnknownCommandException {
+		/*for(String command: commands) {
+			
+		}*/
+		
 		if (commands.length > 1) { // POP, à corriger... Cela fonctionne, mais il faudrait trouver une
 									// meilleure façon de gérer les arguments manquants.( je pense à un while)
 			switch (commands[0].toLowerCase()) {
@@ -38,25 +42,11 @@ public class Command {
 		Result analysisResult = null;
 		try {
 			FileInfo file = new FileInfo(fileName);
-			//System.out.println(file);
-			AnalysisPushed fileAnalysis = new AnalysisPushed(file);
-			
-			/*if (fileAnalysis.getExtensionInfos() != null) {
-				// Si l'extension ne fait pas partie de la base de données, on ne dispose pas
-				// d'informations, l'analyse n'est pas effectuée:
-				// Les méthodes qui utilisent la base, ne sont pas appelées.
-				System.out.println("Available data: " + fileAnalysis.toString());
-				System.out.println("Matching MIME type: " + fileAnalysis.checkMime().toString());
-				System.out.println("Found file signature: " + fileAnalysis.searchSignatureInFile().toString());
-			}*/
-			
-			//fileAnalysis.unzip();
-			
-			analysisResult = new Result(fileAnalysis);
-			
+			AnalysisPushed fileAnalysis = new AnalysisPushed(file);	
+			analysisResult = new Result(fileAnalysis);	
 			System.out.println(analysisResult.toString());
+			//analysisResult.save();
 			
-			//return analysisResult;
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 		}

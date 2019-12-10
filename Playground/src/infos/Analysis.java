@@ -61,21 +61,22 @@ public class Analysis {
 		boolean foundSignature = false;
 		String line;
 		BufferedReader in = null;
-		try {
-			in = new BufferedReader(new FileReader(file.getPath()));
-			while (((line = in.readLine()) != null) && !foundSignature) {
-				foundSignature = line.indexOf(extensionInfos[2]) >= 0;
-				/*
-				 * if (line.charAt(line.indexOf(extensionInfos[2])-1)=='/') { foundSignature =
-				 * false; }
-				 */
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
+		if (extensionInfos.length == 2) {
+			foundSignature = true; // Par défaut, si la 3eme case du fichier csv est vide, on considère qu'il n'y a
+									// pas de pbs avec le contenu d'identification.
+		} else {
 			try {
-				in.close();
-			} catch (Exception e) {
+				in = new BufferedReader(new FileReader(file.getPath()));
+				while (((line = in.readLine()) != null) && !foundSignature) {
+					foundSignature = line.indexOf(extensionInfos[2]) >= 0;
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					in.close();
+				} catch (Exception e) {
+				}
 			}
 		}
 		return foundSignature;

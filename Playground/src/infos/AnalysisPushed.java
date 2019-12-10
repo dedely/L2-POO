@@ -16,7 +16,7 @@ public class AnalysisPushed extends Analysis {
 			special = true;
 			unzip();
 		} else {
-			if (file1.getFileExtension().toString().equals("png")) {
+			if (file1.getFileExtension().toString().equals("jpg")) {
 				special = true;
 				dim();
 			}
@@ -27,7 +27,7 @@ public class AnalysisPushed extends Analysis {
 		unzippedFile = false;
 		try {
 			// création de la ZipInputStream qui va servir à lire les données du fichier zip
-			File folder = new File("C:\\Users\\paulb\\OneDrive\\Bureau\\prog\\JAVA\\decompress");
+			File folder = new File("C:\\Users\\Adel\\Desktop\\Projet");
 			ZipInputStream zis = new ZipInputStream(new BufferedInputStream(new FileInputStream(super.file)));
 			// extractions des entrées du fichiers zip (i.e. le contenu du zip)
 			ZipEntry ze = null;
@@ -88,7 +88,7 @@ public class AnalysisPushed extends Analysis {
 			BufferedImage bimg = ImageIO.read(super.file);
 			int width = bimg.getWidth();
 			int height = bimg.getHeight();
-			tmp += "dimension : width et height " + width + " et " + height +"\n";
+			tmp += "dimension : width = " + width + " height = " + height +"\n";
 		} catch (IOException e) {
 			System.err.println("problème de dim\n");
 		}
