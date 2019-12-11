@@ -4,32 +4,31 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
 public class Result {
 
-	private AnalysisPushed an;
-	
-	public Result (AnalysisPushed fileAnalysis) {
-		an = fileAnalysis;
+	private String fileInfos;
+	private String analysisResults;
+
+	public Result(AnalysisPushed fileAnalysis) {
+		fileInfos = fileAnalysis.getFile().toString();
+		analysisResults = fileAnalysis.toString();
 	}
-	
+
 	public void save(String fileName) {
 		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true)); //Here true is to append the content to file
-				//VI
-				String fileInfos = an.getFile().toString();
-				String anResult = an.toString();
-				writer.write(fileInfos + anResult);
-				writer.newLine();
-			
+			BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true)); // Here true is to append the
+																						// content to file
+			writer.write(fileInfos + analysisResults);
+			writer.newLine();
 			writer.close();
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
 	}
+
 	public String toString() {
 		String tmp = "";
-		tmp += an.getFile().toString() + an.toString();
+		tmp += fileInfos + analysisResults;
 		return tmp;
 	}
 }
