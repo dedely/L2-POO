@@ -100,7 +100,6 @@ public class Analysis {
 			tmp += "\nMatching MIME type: " + checkMime().toString();
 			if (!checkMime()) {
 				tmp += " ANOMALIE!";
-
 			}
 			tmp += "\nFound file signature: " + searchSignatureInFile().toString() + "\n";
 		}

@@ -13,14 +13,7 @@ public class Command {
 	}
 
 	public void runCommand() throws UnknownCommandException {
-		/*
-		 * for(String command: commands) {
-		 * 
-		 * }
-		 */
-
-		if (commands.length > 1) { // POP, à corriger... Cela fonctionne, mais il faudrait trouver une
-									// meilleure façon de gérer les arguments manquants.( je pense à un while)
+		if (commands.length > 1) { 
 			switch (commands[0].toLowerCase()) {
 			case "-f":
 				fileAnalysis(commands[1]);
