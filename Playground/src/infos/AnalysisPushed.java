@@ -16,7 +16,7 @@ public class AnalysisPushed extends Analysis {
 			special = true;
 			unzip();
 		} else {
-			if (file1.getFileExtension().toString().equals("jpg")) {
+			if (file1.getFileExtension().toString().equals("jpg")|| file1.getFileExtension().toString().equals("png")) {
 				special = true;
 				dim();
 			}
