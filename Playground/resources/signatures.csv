@@ -14,4 +14,5 @@ odp;application/vnd.oasis.opendocument.presentation;PK
 ods;application/vnd.oasis.opendocument.spreadsheet;PK
 odt;application/vnd.oasis.opendocument.text;PK
 txt;text/plain;
-jpg;image/jpeg;
+jpg;image/jpeg;ÿØÿ
+png;image/png;‰PNG

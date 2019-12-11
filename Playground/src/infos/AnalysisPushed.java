@@ -60,6 +60,8 @@ public class AnalysisPushed extends Analysis {
 							int bytesRead;
 							while (-1 != (bytesRead = zis.read(buf)))
 								fos.write(buf, 0, bytesRead);
+							
+							unzippedFile = true;
 						} finally {
 							fos.close();
 						}
@@ -73,7 +75,7 @@ public class AnalysisPushed extends Analysis {
 				// fermeture de la ZipInputStream
 				zis.close();
 			}
-			unzippedFile = true;
+			//unzippedFile = true;
 		} catch (FileNotFoundException e) {
 			System.err.println("Decompression impossible1\n");
 		} catch (Exception e) {
