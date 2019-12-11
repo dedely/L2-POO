@@ -7,8 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-import td8.phonebook.Contact;
-
 public class Result {
 
 	private String fileInfos;
