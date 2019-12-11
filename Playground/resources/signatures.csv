@@ -3,8 +3,8 @@ sh;text/x-script.sh;#!/bin/
 sh;application/x-shar;#!/bin/
 sh;application/x-sh;#!/bin/
 sh;application/x-bsh;#!/bin/
-zip;application/x-zip-compressed;PK
 zip;application/zip;PK
+zip;application/x-zip-compressed;PK
 zip;multipart/x-zip;PK
 zip;application/x-compressed;PK
 docx;application/vnd.openxmlformats-officedocument.wordprocessingml.document;PK
