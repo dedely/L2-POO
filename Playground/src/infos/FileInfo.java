@@ -23,7 +23,7 @@ public class FileInfo extends File {
 			fileMimeType = getMimeUsingTika(getName());
 			fileLength = length();
 		} else {
-			throw new FileNotFoundException(fileName + " was not found or is not a File.");
+			throw new FileNotFoundException(fileName + " was not found or is not a file.");
 		}
 	}
 
@@ -36,7 +36,7 @@ public class FileInfo extends File {
 		Tika tika = new Tika();
 		String tmp = "";
 		try {
-			tmp = tika.detect(this.toPath());
+			tmp = tika.detect(this.toPath()); //à commenter.
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

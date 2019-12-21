@@ -13,8 +13,13 @@ public class Command {
 	}
 
 	public void runCommand() throws UnknownCommandException {
-		if (commands.length > 1) { 
+		if (commands.length > 1) {
 			switch (commands[0].toLowerCase()) {
+			// Selon la documentation Java 7, le compilateur java génère un bytecode plus
+			// efficace à partir d'instructions switch qui utilisent des objets String, qu'à
+			// partir d'instructions if-then-else chaînées.
+			// La méthode toLowerCase est utilisée pour rendre l'utilisation des commandes
+			// insensible à la case.
 			case "-f":
 				fileAnalysis(commands[1]);
 				break;
@@ -40,17 +45,15 @@ public class Command {
 			AnalysisPushed fileAnalysis = new AnalysisPushed(file);
 			analysisResult = new Result(fileAnalysis);
 			System.out.println(analysisResult.toString());
-			
-			if (commands.length == 4 && commands[2].equals("-s") ) 		{
-				analysisResult.save(commands[3]+".txt");
-				analysisResult.serializationSave(commands[3]+".ser");
+
+			if (commands.length == 4 && commands[2].equals("-s")) {
+				analysisResult.save(commands[3] + ".txt");
+				analysisResult.serializationSave(commands[3] + ".ser");
 			}
 
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 		}
-		//return analysisResult;
-
 	}
 
 	public void folderAnalysis(String folderName) {
