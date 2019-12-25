@@ -9,6 +9,4 @@ public class ToScan extends File {
 		if (!exists())
 			throw new FileNotFoundException("File not found");
 	}
-		
-	//public abstract ResultList scan();
 }

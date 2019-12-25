@@ -7,35 +7,22 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.NoSuchElementException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JToggleButton;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
-import infos.FileInfo;
-import infos.ScanInDepth;
-import infos.Result;
-import infos.ToScan;
+//import infos.Result;
 import infos.ToScanList;
-import infos.UnknownCommandException;
-import infos.ExtensionNotFoundException;
-import infos.Folder;
-import infos.NotADirectoryException;
-import infos.Command;
 
 public class PrototypeGUI extends JFrame {
 
 	private static final Font MESSAGE_FONT = new Font(Font.SANS_SERIF, Font.ITALIC, 20);
 	private static final Font BUTTON_FONT = new Font(Font.DIALOG, Font.BOLD, 20);
-	private static final Font TEXT_FIELD_FONT = new Font(Font.MONOSPACED, Font.BOLD, 20);
+	//private static final Font TEXT_FIELD_FONT = new Font(Font.MONOSPACED, Font.BOLD, 20);
 	private static final Font LABEL_FONT = new Font(Font.MONOSPACED, Font.BOLD, 12);
 	private static final Font TITLE_LABEL_FONT = new Font(Font.MONOSPACED, Font.BOLD, 20);
 	private static final Color MESSAGE_STANDARD_COLOR = Color.BLUE;
@@ -45,7 +32,7 @@ public class PrototypeGUI extends JFrame {
 	protected JLabel instructionLabel = new JLabel("Ajoutez des objets.");
 	protected JLabel messageLabel = new JLabel("Everything is OK ! ");
 
-	protected JTextField filePathField = new JTextField(30);
+	//protected JTextField filePathField = new JTextField(30);
 
 	protected JButton addButton = new JButton("Add");
 	protected JButton runButton = new JButton("Run");
@@ -75,7 +62,7 @@ public class PrototypeGUI extends JFrame {
 		titleLabel.setFont(TITLE_LABEL_FONT);
 		instructionLabel.setFont(LABEL_FONT);
 
-		filePathField.setFont(TEXT_FIELD_FONT);
+		//filePathField.setFont(TEXT_FIELD_FONT);
 
 		addButton.setFont(BUTTON_FONT);
 		runButton.setFont(BUTTON_FONT);
@@ -104,7 +91,7 @@ public class PrototypeGUI extends JFrame {
 		linePanel3.setSize(500, 100);
 		linePanel3.setLayout(new FlowLayout(FlowLayout.CENTER));
 		linePanel3.add(addButton);
-		linePanel3.add(filePathField);
+		//linePanel3.add(filePathField);
 		contentPane.add(linePanel3);
 
 		// Fourth line
@@ -133,8 +120,9 @@ public class PrototypeGUI extends JFrame {
 
 			int returnValue = jfc.showSaveDialog(null);
 			if (returnValue == JFileChooser.APPROVE_OPTION) {
-				analysisList.addToScanList(jfc.getSelectedFile());
+				analysisList.addToScanList(jfc.getSelectedFile());//try catch à ajouter.
 				updateStandardMessage("Element added !");
+				runButton.setEnabled(true);
 			}
 
 		}
