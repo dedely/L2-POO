@@ -1,0 +1,32 @@
+File name: commons-io-2.6.jar
+Characteristics:
+	Extension: jar
+	MIME type: application/java-archive
+	length: 214788
+FoundExtensionInDatabase : false
+
+File name: src.zip
+Characteristics:
+	Extension: zip
+	MIME type: application/zip
+	length: 2065168
+FoundExtensionInDatabase : true
+Available data:  zip application/zip PK z
+Matching MIME type: true
+Found file signature: true
+unzippedFile: true
+
+File name: swt.jar
+Characteristics:
+	Extension: jar
+	MIME type: application/java-archive
+	length: 2382455
+FoundExtensionInDatabase : false
+
+File name: tika-core-1.22.jar
+Characteristics:
+	Extension: jar
+	MIME type: application/java-archive
+	length: 704498
+FoundExtensionInDatabase : false
+
