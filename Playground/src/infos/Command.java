@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 public class Command {
 	private String[] commands;
-	private ResultList results = new ResultList();
+	private ResultSave results = new ResultSave();
 	
 	public Command(String[] commands) {
 		this.commands = commands;
@@ -14,9 +14,6 @@ public class Command {
 	public void runCommand() throws UnknownCommandException {
 		if (commands.length > 1) {
 			switch (commands[0].toLowerCase()) {
-			// Selon la documentation Java 7, le compilateur java génère un bytecode plus
-			// efficace à partir d'instructions switch qui utilisent des objets String, qu'à
-			// partir d'instructions if-then-else chaînées.
 			// La méthode toLowerCase est utilisée pour rendre l'utilisation des commandes
 			// insensible à la casse.
 			case "-f":
@@ -31,6 +28,10 @@ public class Command {
 			default:
 				throw new UnknownCommandException(commands[0]);
 			}
+			 if (commands.length == 4 && commands[2].equals("-s")) {
+				 results.save(commands[3] + ".txt");
+				 results.serializationSave(commands[3] + ".ser");
+			 }
 		} else {
 			System.out.println("Merci d'entrer des paramêtres.");
 			help();

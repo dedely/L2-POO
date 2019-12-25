@@ -5,7 +5,7 @@ public class Result {
 	private String fileInfos;
 	private String analysisResults;
 
-	public Result(AnalysisPushed fileAnalysis) {
+	public Result(ScanInDepth fileAnalysis) {
 		fileInfos = fileAnalysis.getFile().toString();
 		analysisResults = fileAnalysis.toString();
 	}

@@ -5,14 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Analysis {
+public class Scan {
 	private static String DATABASE = "C:\\mnt\\c\\Users\\Adel\\git\\L2-POO\\Playground\\resources\\signatures.csv";
 	public final static String SEPARATOR = ";";
 	protected FileInfo file;
 	private String[] extensionInfos;
 	private Boolean foundExtensionInDatabase;
 
-	public Analysis(FileInfo file) {
+	public Scan(FileInfo file) {
 		this.file = file;
 		try {
 			extensionInfos = searchExtensionInfosInDatabase();

@@ -1,9 +1,9 @@
 package infos;
 
-public class AnalysisPushed extends Analysis {
+public class ScanInDepth extends Scan {
 	IntegrityInterface integrity;
 
-	public AnalysisPushed(FileInfo file) {
+	public ScanInDepth(FileInfo file) {
 		super(file);
 		try {
 			checkIntegrity(file);

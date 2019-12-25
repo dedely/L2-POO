@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 
 import infos.FileInfo;
-import infos.AnalysisPushed;
+import infos.ScanInDepth;
 import infos.Result;
 import infos.ToScan;
 import infos.ToScanList;
@@ -65,7 +65,7 @@ public class PrototypeGUI extends JFrame {
 	}
 
 	protected void initActions() {
-		addButton.addActionListener(new AddAction());
+		//addButton.addActionListener(new AddAction());
 	}
 
 	protected void initStyle() {
@@ -117,7 +117,7 @@ public class PrototypeGUI extends JFrame {
 		pack();
 		setVisible(true);
 	}
-
+/*
 	private class AddAction implements ActionListener {
 
 		@Override
@@ -138,7 +138,7 @@ public class PrototypeGUI extends JFrame {
 			}
 		}
 	}
-	
+	*/
 	private void updateStandardMessage(String message) {
 		messageLabel.setForeground(MESSAGE_STANDARD_COLOR);
 		messageLabel.setText(message);

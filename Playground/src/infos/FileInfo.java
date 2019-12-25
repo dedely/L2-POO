@@ -55,13 +55,8 @@ public class FileInfo extends ToScan {
 	}
 
 	public Result scan() {
-		AnalysisPushed fileAnalysis = new AnalysisPushed(this);
+		ScanInDepth fileAnalysis = new ScanInDepth(this);
 		Result analysisResult = new Result(fileAnalysis);
-		/*
-		 * if (commands.length == 4 && commands[2].equals("-s")) {
-		 * analysisResult.save(commands[3] + ".txt");
-		 * analysisResult.serializationSave(commands[3] + ".ser"); }
-		 */
 		return analysisResult;
 	}
 
