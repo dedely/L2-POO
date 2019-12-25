@@ -26,7 +26,7 @@ public class PrototypeGUI extends JFrame {
 	private static final Font LABEL_FONT = new Font(Font.MONOSPACED, Font.BOLD, 12);
 	private static final Font TITLE_LABEL_FONT = new Font(Font.MONOSPACED, Font.BOLD, 20);
 	private static final Color MESSAGE_STANDARD_COLOR = Color.BLUE;
-	private static final Color MESSAGE_ERROR_COLOR = Color.RED;
+	//private static final Color MESSAGE_ERROR_COLOR = Color.RED;
 
 	protected JLabel titleLabel = new JLabel("Analyse");
 	protected JLabel instructionLabel = new JLabel("Ajoutez des objets.");
@@ -34,13 +34,14 @@ public class PrototypeGUI extends JFrame {
 
 	//protected JTextField filePathField = new JTextField(30);
 
-	protected JButton addButton = new JButton("Add");
-	protected JButton runButton = new JButton("Run");
+	protected JButton addButton = new JButton("+ Add");
+	protected JButton runButton = new JButton("> Run Scan");
 
 	private JPanel linePanel1;
 	private JPanel linePanel3;
-
-	private ToScanList analysisList;
+	private JPanel linePanel4;
+	
+	private ToScanList analysisList = new ToScanList();
 	
 	public PrototypeGUI(String title) {
 		super(title);
@@ -76,7 +77,7 @@ public class PrototypeGUI extends JFrame {
 		Container contentPane = getContentPane();
 		contentPane.setLayout(grid);
 
-		// First line
+		// First line Titre(ok)
 		linePanel1 = new JPanel();
 		linePanel1.setSize(500, 100);
 		linePanel1.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -84,7 +85,7 @@ public class PrototypeGUI extends JFrame {
 		contentPane.add(linePanel1);
 
 		// Second line
-		contentPane.add(instructionLabel);
+		//contentPane.add(instructionLabel);
 
 		// Third line
 		linePanel3 = new JPanel();
@@ -95,16 +96,22 @@ public class PrototypeGUI extends JFrame {
 		contentPane.add(linePanel3);
 
 		// Fourth line
-		runButton.setEnabled(false); // The user can't run the scan until appropriate objets (either files or
-										// folders) are added.
-		contentPane.add(runButton);
+		
+		linePanel4 = new JPanel();
+		linePanel4.setSize(500, 100);
+		linePanel4.setLayout(new FlowLayout(FlowLayout.CENTER));
+		runButton.setEnabled(false); // The user can't run the scan until appropriate objets (either files or folders are added)
+		linePanel4.add(runButton);
+		contentPane.add(linePanel4);
+		// Encapsuler les boutons dans le même container...
+		
 		// Fifth line
-		contentPane.add(messageLabel);
+		
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(1000, 200);
+		setSize(500, 480);
 		setResizable(false);
-		pack();
+		//pack();
 		setVisible(true);
 	}
 
@@ -121,17 +128,21 @@ public class PrototypeGUI extends JFrame {
 			int returnValue = jfc.showSaveDialog(null);
 			if (returnValue == JFileChooser.APPROVE_OPTION) {
 				analysisList.addToScanList(jfc.getSelectedFile());//try catch à ajouter.
-				updateStandardMessage("Element added !");
+				//updateStandardMessage("Element added !");
+				updateListDisplay();
 				runButton.setEnabled(true);
 			}
-
 		}
 	}
 
+	private void updateListDisplay() {
+
+	}
+	/*
 	private void updateStandardMessage(String message) {
 		messageLabel.setForeground(MESSAGE_STANDARD_COLOR);
 		messageLabel.setText(message);
-	}
+	}*/
 	/*
 	private void updateErrorMessage(String message) {
 		messageLabel.setForeground(MESSAGE_ERROR_COLOR);

@@ -52,6 +52,10 @@ public class ToScanList {
 		return filesToScan.size();
 	}
 	
+	public boolean isEmpty() {
+		return filesToScan.isEmpty();
+	}
+	
 	public String toString() {
 		String tmp = "";
 		for(File file : filesToScan) {	
