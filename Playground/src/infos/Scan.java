@@ -10,17 +10,23 @@ import java.io.InputStreamReader;
 public class Scan {
 	private static String DATABASE = "/signatures.csv";
 	public final static String SEPARATOR = ";";
-	protected FileInfo file;
+	private FileInfo file;
 	private String[] extensionInfos;
-	private Boolean foundExtensionInDatabase;
+	private boolean foundExtensionInDatabase;
+	private boolean anomaly;
+	private Result result;
 
-	public Scan(FileInfo file) {
+
+	public Scan(FileInfo file) {		
 		this.file = file;
 		try {
 			extensionInfos = searchExtensionInfosInDatabase();
 		} catch (ExtensionNotFoundException e) {
 			System.err.println(e.getMessage());
 		}
+		anomaly();
+		
+		result = new Result(file.toString(), this.toString(), anomaly);
 	}
 
 	/**
@@ -91,6 +97,22 @@ public class Scan {
 
 	public FileInfo getFile() {
 		return file;
+	}
+	
+	public void anomaly() {
+		anomaly = file.isEmpty() && !(checkMime() && searchSignatureInFile());
+	}
+	
+	public boolean getAnomaly() {
+		return anomaly;
+	}
+	
+	public void setAnomaly(boolean newState) {
+		anomaly = newState;
+	}
+	
+	public Result getResult() {
+		return result;
 	}
 
 	public String toString() {

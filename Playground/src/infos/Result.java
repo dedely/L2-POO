@@ -4,10 +4,12 @@ public class Result {
 
 	private String fileInfos;
 	private String analysisResults;
+	private boolean anomaly;
 
-	public Result(ScanInDepth fileAnalysis) {
-		fileInfos = fileAnalysis.getFile().toString();
-		analysisResults = fileAnalysis.toString();
+	public Result(String fileInfos, String analysisResults, boolean anomaly) {
+		this.fileInfos = fileInfos;
+		this.analysisResults = analysisResults;
+		this.anomaly = anomaly;
 	}
 
 	public String getFileInfos() {
@@ -16,6 +18,10 @@ public class Result {
 	
 	public String getAnalysisResults() {
 		return analysisResults;
+	}
+	
+	public boolean getAnomaly() {
+		return anomaly;
 	}
 
 	public String toString() {

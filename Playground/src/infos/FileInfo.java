@@ -57,7 +57,7 @@ public class FileInfo extends ToScan {
 	public ResultList scan() {
 		ScanInDepth fileAnalysis = new ScanInDepth(this);
 		ResultList analysisResult = new ResultList();
-		analysisResult.add(new Result(fileAnalysis));
+		analysisResult.add(fileAnalysis.getResult());
 		return analysisResult;
 	}
 

@@ -29,6 +29,11 @@ public class ImageIntegrity implements IntegrityInterface{
 		}
 		return isImage;
 	}
+	
+	public boolean getIntegrity() {
+		return isImage;
+	}
+	
 	public String toString() {
 		String tmp = "";
 		tmp += "isImage : "+ isImage + "\tdimensions : width = " + width + " height = " + height +"\n";

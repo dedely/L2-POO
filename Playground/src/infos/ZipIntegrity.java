@@ -79,6 +79,10 @@ public class ZipIntegrity implements IntegrityInterface{
 		return unzippedFile;
 	}
 	
+	public boolean getIntegrity() {
+		return unzippedFile;
+	}
+	
 	public String toString() {
 		return "unzippedFile: " + unzippedFile + "\n";
 	}

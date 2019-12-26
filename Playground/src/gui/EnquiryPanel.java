@@ -47,7 +47,7 @@ public class EnquiryPanel extends JPanel {
 	}
 
 	private void initStyle() {
-		FlowLayout flow = new FlowLayout(FlowLayout.LEFT);
+		FlowLayout flow = new FlowLayout(FlowLayout.CENTER);
 		this.setLayout(flow);
 		this.add(filePathLabel);
 		this.add(removeButton);

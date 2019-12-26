@@ -26,6 +26,12 @@ public class ScanInDepth extends Scan {
 			}
 		}
 	}
+	
+	public void anomaly() {
+		if(integrity != null && !integrity.getIntegrity() ) {
+			super.setAnomaly(true);
+		}
+	}
 
 	public String toString() {
 		String tmp = super.toString();
