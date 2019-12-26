@@ -27,7 +27,7 @@ public class PrototypeGUI extends JFrame {
 
 	protected JLabel titleLabel = new JLabel("Selective Scan");
 
-	protected JButton addButton = new JButton("+ Add");
+	protected JButton addButton = new JButton("+ Add...");
 	protected JButton runButton = new JButton("> Run Scan");
 
 	protected JPanel buttonsPanel;

@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -14,12 +15,15 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-
+import infos.Result;
 import infos.ResultSave;
 
 public class ResultsPanel extends JPanel {
 	private static final Font LABEL_FONT = new Font(Font.MONOSPACED, Font.BOLD, 12);
 	private static final Font BUTTON_FONT = new Font(Font.DIALOG, Font.BOLD, 20);
+	
+	
+	private static final Color MESSAGE_ERROR_COLOR = Color.RED;
 	private JLabel summaryLabel;
 
 	private JButton detailedReportButton = new JButton("detailed report");
@@ -74,16 +78,27 @@ public class ResultsPanel extends JPanel {
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
             panel.setOpaque(true);
-            JTextArea textArea = new JTextArea();
-            textArea.setText(list.toString());
-            textArea.setWrapStyleWord(true);
-            textArea.setEditable(false);
-            textArea.setFont(Font.getFont(Font.SANS_SERIF));
+            JPanel resultsArea = new JPanel();
+            resultsArea.setLayout(new BoxLayout(resultsArea, BoxLayout.Y_AXIS));
+            
+            for (Result result : list.getResults()) {
+            	JTextArea subTextArea = new JTextArea();
+            	if(result.getAnomaly().equals("true")) {
+            		subTextArea.setForeground(MESSAGE_ERROR_COLOR);
+            	}
+            	subTextArea.setText(result.toString());
+            	subTextArea.setWrapStyleWord(true);
+                subTextArea.setEditable(false);
+                subTextArea.setFont(Font.getFont(Font.SANS_SERIF));
+                resultsArea.add(subTextArea);
+    		}
+            
 
-            JScrollPane scroller = new JScrollPane(textArea);
+            JScrollPane scroller = new JScrollPane(resultsArea);
             panel.add(scroller);
 
             frame.getContentPane().add(BorderLayout.CENTER, panel);
+            frame.setSize(500, 480);
             frame.pack();
             frame.setLocationByPlatform(true);
             frame.setVisible(true);

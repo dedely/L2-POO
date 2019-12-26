@@ -13,9 +13,12 @@ import infos.ToScanList;
 
 public class EnquiriesPanel extends JPanel {
 	private static final Font LABEL_FONT = new Font(Font.MONOSPACED, Font.BOLD, 12);
-	protected JLabel instructionLabel = new JLabel("Add objects for scan.");
+	protected JLabel instructionLabel = new JLabel(
+			"Add objects for scan by clicking on the 'add' button.");
+	protected JLabel selectedLabel = new JLabel("Selected for scanning:");
 
 	protected JButton runButton;
+
 	// protected JButton clearButton = new JButton("clear");
 	// private ToScanList list;
 	public EnquiriesPanel(ToScanList list, JButton runButton) {
@@ -44,6 +47,11 @@ public class EnquiriesPanel extends JPanel {
 			add(tmp);
 		} else {
 			for (ToScan file : list.getScanList()) {
+				JPanel tmp = new JPanel();
+				FlowLayout flow = new FlowLayout(FlowLayout.LEFT);
+				tmp.setLayout(flow);
+				tmp.add(selectedLabel);
+				add(tmp);
 				EnquiryPanel eqPanel = new EnquiryPanel(file, list);
 				add(eqPanel);
 			}
