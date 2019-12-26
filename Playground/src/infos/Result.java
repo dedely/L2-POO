@@ -4,9 +4,9 @@ public class Result {
 
 	private String fileInfos;
 	private String analysisResults;
-	private boolean anomaly;
+	private String anomaly;
 
-	public Result(String fileInfos, String analysisResults, boolean anomaly) {
+	public Result(String fileInfos, String analysisResults, String anomaly) {
 		this.fileInfos = fileInfos;
 		this.analysisResults = analysisResults;
 		this.anomaly = anomaly;
@@ -20,7 +20,7 @@ public class Result {
 		return analysisResults;
 	}
 
-	public boolean getAnomaly() {
+	public String getAnomaly() {
 		return anomaly;
 	}
 

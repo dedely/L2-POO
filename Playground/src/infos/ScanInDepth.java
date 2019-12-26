@@ -25,14 +25,11 @@ public class ScanInDepth extends Scan {
 				throw new NoTestAvailableException(file.getFileExtension());
 			}
 		}
-	}
-	
-	public void anomaly() {
 		if(integrity != null && !integrity.getIntegrity() ) {
 			super.setAnomaly(true);
 		}
 	}
-
+	
 	public String toString() {
 		String tmp = super.toString();
 		if (integrity != null) {

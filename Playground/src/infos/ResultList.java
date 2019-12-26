@@ -26,7 +26,7 @@ public class ResultList {
 	public int anomalyCount() {
 		int ctr = 0;
 		for (Result result : results) {
-			if(result.getAnomaly())
+			if(result.getAnomaly().equals("true"))
 				ctr ++;
 		}
 		return ctr;

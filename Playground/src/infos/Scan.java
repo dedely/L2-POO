@@ -12,8 +12,8 @@ public class Scan {
 	public final static String SEPARATOR = ";";
 	private FileInfo file;
 	private String[] extensionInfos;
-	private boolean foundExtensionInDatabase;
-	private boolean anomaly;
+	private	boolean foundExtensionInDatabase;
+	private Boolean anomalyDetected;
 	private Result result;
 
 
@@ -24,9 +24,9 @@ public class Scan {
 		} catch (ExtensionNotFoundException e) {
 			System.err.println(e.getMessage());
 		}
-		anomaly();
+		anomalyDetected = anomaly();
 		
-		result = new Result(file.toString(), this.toString(), anomaly);
+		result = new Result(file.toString(), this.toString(), anomalyDetected.toString());
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class Scan {
 		}
 	}
 
-	public Boolean foundExtensionInDatabase() {
+	public boolean foundExtensionInDatabase() {
 		return foundExtensionInDatabase;
 	}
 
@@ -99,16 +99,16 @@ public class Scan {
 		return file;
 	}
 	
-	public void anomaly() {
-		anomaly = file.isEmpty() && !(checkMime() && searchSignatureInFile());
+	public boolean anomaly() {
+		return file.isEmpty() && !(checkMime() && searchSignatureInFile());
 	}
 	
 	public boolean getAnomaly() {
-		return anomaly;
+		return anomalyDetected;
 	}
 	
 	public void setAnomaly(boolean newState) {
-		anomaly = newState;
+		anomalyDetected = newState;
 	}
 	
 	public Result getResult() {
