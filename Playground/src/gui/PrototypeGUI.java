@@ -22,6 +22,8 @@ public class PrototypeGUI extends JFrame {
 
 	private static final Font BUTTON_FONT = new Font(Font.DIALOG, Font.BOLD, 20);
 	private static final Font TITLE_LABEL_FONT = new Font(Font.MONOSPACED, Font.BOLD, 20);
+	
+	private final String DEFAULT_SAVE_FILE = "autosave.ser";
 
 	protected JLabel titleLabel = new JLabel("Selective Scan");
 
@@ -105,11 +107,8 @@ public class PrototypeGUI extends JFrame {
 
 			int returnValue = jfc.showSaveDialog(null);
 			if (returnValue == JFileChooser.APPROVE_OPTION) {
-				analysisList.addToScanList(jfc.getSelectedFile());// try catch à ajouter
-
+				analysisList.addToScanList(jfc.getSelectedFile());
 				eqPanel.layoutEnquiries(analysisList);
-
-
 				revalidate();
 				repaint();
 			}
@@ -120,13 +119,18 @@ public class PrototypeGUI extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			results.add(analysisList.scan());
-			updateResultsArea(results);
+			analysisList.clear();
+			eqPanel.layoutEnquiries(analysisList);
+			updateResults();
 		}
 	}
 
-	private void updateResultsArea(ResultSave results) {
-		resultsPanel.update(results);
-		
+	private void updateResults() {
+		results.serializationSave(DEFAULT_SAVE_FILE);
+		results.clear();
+		ResultSave tmp = new ResultSave();
+		tmp.serializationRead(DEFAULT_SAVE_FILE);
+		resultsPanel.update(tmp);
 	}
 	
 	public static void main(String[] args) {

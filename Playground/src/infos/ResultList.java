@@ -41,13 +41,16 @@ public class ResultList {
 		tmp += resultCount() + " file(s) scanned. " + anomalyCount() + " anomaly(ies) detected.\n";
 		return tmp;
 	}
+	
+	public void clear() {
+		results.clear();
+	}
 
 	public String toString() {
 		String tmp = "";
 		for (Result result : results) {
 			tmp += result.toString() + "\n" + "-----------------------------\n";
 		}
-		tmp += summarize() + "-----------------------------\n";
 		return tmp;
 	}
 }

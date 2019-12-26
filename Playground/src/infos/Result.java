@@ -15,18 +15,18 @@ public class Result {
 	public String getFileInfos() {
 		return fileInfos;
 	}
-	
+
 	public String getAnalysisResults() {
 		return analysisResults;
 	}
-	
+
 	public boolean getAnomaly() {
 		return anomaly;
 	}
 
 	public String toString() {
 		String tmp = "";
-		tmp += fileInfos + analysisResults;
+		tmp += fileInfos + analysisResults + "Anomaly: " + anomaly + "\n";
 		return tmp;
 	}
 }
