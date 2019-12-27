@@ -20,11 +20,11 @@ import infos.ResultSave;
 import infos.ToScanList;
 
 /**
- * @author Adel
+ * @authors Adel, Paul
  *
  */
 
-public class PrototypeGUI extends JFrame {
+public class ScannerGUI extends JFrame {
 
 	private static final Font BUTTON_FONT = new Font(Font.DIALOG, Font.BOLD, 20);
 	private static final Font TITLE_LABEL_FONT = new Font(Font.MONOSPACED, Font.BOLD, 24);
@@ -44,7 +44,7 @@ public class PrototypeGUI extends JFrame {
 	private ToScanList analysisList = new ToScanList();
 	private ResultSave results = new ResultSave();
 
-	public PrototypeGUI(String title) {
+	public ScannerGUI(String title) {
 		super(title);
 
 		analysisList = new ToScanList();
@@ -166,6 +166,6 @@ public class PrototypeGUI extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		new PrototypeGUI("Prototype GUI");
+		new ScannerGUI("Scanner GUI");
 	}
 }

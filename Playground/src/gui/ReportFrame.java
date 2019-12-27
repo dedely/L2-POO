@@ -14,6 +14,11 @@ import infos.Result;
 import infos.ResultList;
 import infos.ResultSave;
 
+/**
+ * @authors Adel, Paul Permet l'affichage du rapport détaillé de l'analyse dans
+ *          une nouvelle fenêtre, à la demande de l'utilisateur. Les éventuelles
+ *          anomalies détectées sont mises en évidence graphiquement.
+ */
 public class ReportFrame extends JFrame {
 
 	private static final Color MESSAGE_ERROR_COLOR = Color.RED;
@@ -44,15 +49,15 @@ public class ReportFrame extends JFrame {
 		setVisible(true);
 		setResizable(false);
 	}
-	
+
 	private JPanel highlightAnomalies(ResultList list) {
 		JPanel resultsArea = new JPanel();
 		resultsArea.setLayout(new BoxLayout(resultsArea, BoxLayout.Y_AXIS));
-		//On met en évidence les anomalies en parcourant les résultats.
+		// On met en évidence les anomalies en parcourant les résultats.
 		for (Result result : list.getResults()) {
 			JTextArea subTextArea = new JTextArea();
 			if (result.getAnomaly().equals("true")) {
-				//Il suffit pour cela de changer la couleur du texte.
+				// Il suffit pour cela de changer la couleur du texte.
 				subTextArea.setForeground(MESSAGE_ERROR_COLOR);
 			}
 			subTextArea.setText(result.toString());
