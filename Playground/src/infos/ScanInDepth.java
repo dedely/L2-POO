@@ -1,5 +1,8 @@
 package infos;
 
+/**
+ * @authors Adel, Paul Cette classe fournit les méthodes nécessaires à une analyse complète.
+ */
 public class ScanInDepth extends Scan {
 	IntegrityInterface integrity;
 
@@ -7,13 +10,17 @@ public class ScanInDepth extends Scan {
 		super(file);
 		try {
 			checkIntegrity(file);
-		} catch (NoTestAvailableException e) {
+		} catch (IntegrityTestUnavailableException e) {
 			System.err.println(e.getMessage());
 		}
 	}
 
-	public void checkIntegrity(FileInfo file) throws NoTestAvailableException {
-		if (getExtensionInfos()!= null && getExtensionInfos().length > 3) {
+	/**
+	 * @param file
+	 * @throws IntegrityTestUnavailableException
+	 */
+	public void checkIntegrity(FileInfo file) throws IntegrityTestUnavailableException {
+		if (getExtensionInfos() != null && getExtensionInfos().length > 3) {
 			switch (getExtensionInfos()[3]) {
 			case "i": // image
 				integrity = new ImageIntegrity(getFile());
@@ -22,14 +29,14 @@ public class ScanInDepth extends Scan {
 				integrity = new ZipIntegrity(getFile());
 				break;
 			default:
-				throw new NoTestAvailableException(file.getFileExtension());
+				throw new IntegrityTestUnavailableException(file.getFileExtension());
 			}
 		}
-		if(integrity != null && !integrity.getIntegrity() ) {
+		if (integrity != null && !integrity.getIntegrity()) {
 			super.setAnomaly(true);
 		}
 	}
-	
+
 	public String toString() {
 		String tmp = super.toString();
 		if (integrity != null) {

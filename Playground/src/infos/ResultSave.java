@@ -10,12 +10,20 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-
+/**
+ * @author Adel Fournit les méthodes nécessaires à la sauvegarde et à la lecture
+ *         des résultats dans un fichier. Il s'agit d'une adaptation des
+ *         méthodes du TD8.
+ *
+ */
 public class ResultSave extends ResultList {
+	/**
+	 * @param fileName
+	 */
 	public void save(String fileName) {
 		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true)); // Here true is to append the
-			for(Result result: getResults()) {
+			BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+			for (Result result : getResults()) {
 				writer.write(result.getFileInfos() + result.getAnalysisResults());
 				writer.newLine();
 			}
@@ -24,12 +32,15 @@ public class ResultSave extends ResultList {
 			System.err.println(e.getMessage());
 		}
 	}
-	
+
+	/**
+	 * @param fileName
+	 */
 	public void serializationSave(String fileName) {
 		ObjectOutputStream stream;
 		try {
 			stream = new ObjectOutputStream(new FileOutputStream(fileName));
-			for(Result result: getResults()) {
+			for (Result result : getResults()) {
 				stream.writeObject(result);
 			}
 			stream.close();
@@ -40,6 +51,9 @@ public class ResultSave extends ResultList {
 		}
 	}
 
+	/**
+	 * @param fileName
+	 */
 	public void serializationRead(String fileName) {
 		try {
 			ObjectInputStream stream = new ObjectInputStream(new FileInputStream(fileName));
@@ -59,5 +73,4 @@ public class ResultSave extends ResultList {
 			System.err.println(e.getMessage());
 		}
 	}
-	
 }

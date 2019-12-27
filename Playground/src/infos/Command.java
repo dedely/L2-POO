@@ -2,42 +2,58 @@ package infos;
 
 import java.io.FileNotFoundException;
 
+/**
+ * @author Adel Fournit les méthodes nécessaires à l'exécution des commandes
+ *         utilisateur en mode console.
+ */
 public class Command {
 	private String[] commands;
 	private ResultSave results = new ResultSave();
-	
+
+	/**
+	 * @param commands sont les arguments passés à la main.
+	 */
 	public Command(String[] commands) {
 		this.commands = commands;
 
 	}
 
+	/**
+	 * @throws UnknownCommandException si la commande saisie est inconnue.
+	 */
 	public void runCommand() throws UnknownCommandException {
-		if (commands.length > 1) {
-			switch (commands[0].toLowerCase()) {
-			// La méthode toLowerCase est utilisée pour rendre l'utilisation des commandes
-			// insensible à la casse.
-			case "-f":
-				fileAnalysis(commands[1]);
-				break;
-			case "-d":
-				folderAnalysis(commands[1]);
-				break;
-			case "-h":
+		if (commands.length == 1) {
+			if (commands[0].equals("-h")) {
 				help();
-				break;
-			default:
+			} else {
 				throw new UnknownCommandException(commands[0]);
 			}
-			 if (commands.length == 4 && commands[2].equals("-s")) {
-				 results.save(commands[3] + ".txt");
-				 results.serializationSave(commands[3] + ".ser");
-			 }
 		} else {
-			System.out.println("Merci d'entrer des paramêtres.");
-			help();
+			if (commands.length > 1) {
+				switch (commands[0]) {
+				case "-f":
+					fileAnalysis(commands[1]);
+					break;
+				case "-d":
+					folderAnalysis(commands[1]);
+					break;
+				default:
+					throw new UnknownCommandException(commands[0]);
+				}
+				if (commands.length == 4 && commands[2].equals("-s")) {
+					results.save(commands[3] + ".txt");
+					results.serializationSave(commands[3] + ".ser");
+				}
+			} else {
+				System.out.println("Merci d'entrer des paramêtres.");
+				help();
+			}
 		}
 	}
 
+	/**
+	 * @param pathName analyse d'un fichier
+	 */
 	public void fileAnalysis(String pathName) {
 		try {
 			FileInfo file = new FileInfo(pathName);
@@ -49,6 +65,9 @@ public class Command {
 		}
 	}
 
+	/**
+	 * @param pathName analyse d'un dossier
+	 */
 	public void folderAnalysis(String pathName) {
 		try {
 			Folder folder = new Folder(pathName);
@@ -59,16 +78,22 @@ public class Command {
 			System.err.println(e.getMessage());
 		}
 	}
-	
+
+	/**
+	 * @return les résultats d'une analyse
+	 */
 	public ResultList getResults() {
 		return results;
 	}
 
+	/**
+	 * liste les commandes disponibles
+	 */
 	public void help() {
 		System.out.println("Liste de commandes :");
-		System.out.println("\t-f : analyse fichier");
-		System.out.println("\t-d : analyse dossier");
-		System.out.println("\t-s : sauvegarde d'une analyse");
+		System.out.println("\t-f filePath : analyse fichier");
+		System.out.println("\t-d folderPath : analyse dossier");
+		System.out.println("\t-s fileName: sauvegarde d'une analyse");
 		System.out.println("\t-h : help");
 	}
 }

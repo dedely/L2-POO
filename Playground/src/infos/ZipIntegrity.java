@@ -11,18 +11,24 @@ import java.io.OutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class ZipIntegrity implements IntegrityInterface{
+/**
+ * @author Paul Fournit les méthodes nécessaires pour la vérification de
+ *         l'intégrité d'une archive.
+ *
+ */
+public class ZipIntegrity implements IntegrityInterface {
 	private boolean unzippedFile;
-	
+
 	public ZipIntegrity(File file) {
 		unzippedFile = validatedIntegrity(file);
 	}
-	
+
 	public boolean validatedIntegrity(File file) {
 		unzippedFile = false;
 		try {
+			// La décompression est effectuée dans le dossier courant.
+			File folder = new File(".");
 			// création de la ZipInputStream qui va servir à lire les données du fichier zip
-			File folder = new File("C:\\Users\\Adel\\Desktop\\Projet");
 			ZipInputStream zis = new ZipInputStream(new BufferedInputStream(new FileInputStream(file)));
 			// extractions des entrées du fichiers zip (i.e. le contenu du zip)
 			ZipEntry ze = null;
@@ -55,7 +61,7 @@ public class ZipIntegrity implements IntegrityInterface{
 							int bytesRead;
 							while (-1 != (bytesRead = zis.read(buf)))
 								fos.write(buf, 0, bytesRead);
-							
+
 							unzippedFile = true;
 						} finally {
 							fos.close();
@@ -70,7 +76,7 @@ public class ZipIntegrity implements IntegrityInterface{
 				// fermeture de la ZipInputStream
 				zis.close();
 			}
-			//unzippedFile = true;
+			// unzippedFile = true;
 		} catch (FileNotFoundException e) {
 			System.err.println("Decompression impossible1\n");
 		} catch (Exception e) {
@@ -78,11 +84,11 @@ public class ZipIntegrity implements IntegrityInterface{
 		}
 		return unzippedFile;
 	}
-	
+
 	public boolean getIntegrity() {
 		return unzippedFile;
 	}
-	
+
 	public String toString() {
 		return "unzippedFile: " + unzippedFile + "\n";
 	}

@@ -7,17 +7,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * @authors Adel, Paul
+ *
+ */
 public class Scan {
 	private static String DATABASE = "/signatures.csv";
 	public final static String SEPARATOR = ";";
 	private FileInfo file;
 	private String[] extensionInfos;
-	private	boolean foundExtensionInDatabase;
+	private boolean foundExtensionInDatabase;
 	private Boolean anomalyDetected;
 	private Result result;
 
-
-	public Scan(FileInfo file) {		
+	public Scan(FileInfo file) {
 		this.file = file;
 		try {
 			extensionInfos = searchExtensionInfosInDatabase();
@@ -30,17 +33,21 @@ public class Scan {
 	}
 
 	/**
-	 * @return the appropriate line of the database as a String array.
-	 * @throws ExtensionNotFoundException
+	 * @return les éléments de la base de données correspondant à l'extension du
+	 *         fichier analysé
+	 * @throws ExtensionNotFoundException si aucune information n'est disponible
+	 *                                    dans la base.
 	 */
 	public String[] searchExtensionInfosInDatabase() throws ExtensionNotFoundException {
 		String line, fields[] = null;
 		foundExtensionInDatabase = false;
 		try {
-			InputStream in = getClass().getResourceAsStream(DATABASE); 
+			InputStream in = getClass().getResourceAsStream(DATABASE);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+			// On parcours la base
 			while (((line = reader.readLine()) != null) && (!foundExtensionInDatabase)) {
 				fields = line.split(SEPARATOR);
+				// Jusqu'à trouver l'extension
 				if (fields[0].equals(file.getFileExtension())) {
 					foundExtensionInDatabase = true;
 				}
@@ -66,6 +73,9 @@ public class Scan {
 		return extensionInfos[1].equals(file.getMimeType());
 	}
 
+	/**
+	 * @return si le contenu d'identification est présent dans le fichier analysé.
+	 */
 	public Boolean searchSignatureInFile() {
 		boolean foundSignature = false;
 		String line;
@@ -76,7 +86,13 @@ public class Scan {
 		} else {
 			try {
 				in = new BufferedReader(new FileReader(file.getPath()));
+				//On parcours le fichier ligne par ligne.
 				while (((line = in.readLine()) != null) && !foundSignature) {
+					// la méthode String str.indexOf(String subStr) permet de retourner l'indice
+					// d'une sous-chaine dans une chaine de caractères. Elle retourne -1 si la
+					// sous-chaine n'est pas présente.
+					// Donc si line.indexOf(extensionInfos[2]) >= 0, le contenu d'identification est
+					// présent.
 					foundSignature = line.indexOf(extensionInfos[2]) >= 0;
 				}
 			} catch (IOException e) {
@@ -98,23 +114,26 @@ public class Scan {
 	public FileInfo getFile() {
 		return file;
 	}
-	
+
+	/**
+	 * @return la présence d'anomalies.
+	 */
 	public boolean anomaly() {
 		if (foundExtensionInDatabase) {
 			return file.isEmpty() || !(checkMime() && searchSignatureInFile());
-		}else {
+		} else {
 			return file.isEmpty();
 		}
 	}
-	
+
 	public boolean getAnomaly() {
 		return anomalyDetected;
 	}
-	
+
 	public void setAnomaly(boolean newState) {
 		anomalyDetected = newState;
 	}
-	
+
 	public Result getResult() {
 		return result;
 	}

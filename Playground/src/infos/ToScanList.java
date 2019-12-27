@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * @author Adel
+ *
+ */
 public class ToScanList {
 	private ArrayList<ToScan> filesToScan = new ArrayList<ToScan>();
 
