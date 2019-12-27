@@ -19,17 +19,17 @@ import infos.ToScanList;
  *         Permet également à l'utilisateur de déselectionner cet élément: Cette
  *         fonctionnalité (facultative) est encore en construction. Si nous ne
  *         sommes pas encore parvenus à mettre à jour correctement l'affichage,
- *         les éléments déselectionnés sont bien supprimés de la liste
- *         d'éléments à analyser.
+ *         en particulier le runScanButton, les éléments déselectionnés sont
+ *         bien supprimés de la liste d'éléments à analyser.
  *
  */
 public class EntryPanel extends JPanel {
 
 	private static final Font LABEL_FONT = new Font(Font.MONOSPACED, Font.BOLD, 12);
 	private static final Font DELETE_BUTTON_FONT = new Font(Font.DIALOG, Font.BOLD, 20);
-	protected JLabel filePathLabel;
+	private JLabel filePathLabel;
 
-	protected JButton removeButton = new JButton("x");
+	private JButton removeButton = new JButton("x");
 
 	private ToScanList list;
 	private ToScan file;
@@ -66,15 +66,15 @@ public class EntryPanel extends JPanel {
 
 	private class RemoveAction implements ActionListener {
 		/**
-		 *Supprime l'élément de la liste d'éléments à analyser.
+		 * Supprime l'élément de la liste d'éléments à analyser.
 		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//L'élément est supprimé de la liste
+			// L'élément est supprimé de la liste
 			list.remove(file);
-			//On supprime les composants graphiques
+			// On supprime les composants graphiques
 			removeAll();
-			//On rafraichit
+			// On rafraichit
 			revalidate();
 			repaint();
 		}

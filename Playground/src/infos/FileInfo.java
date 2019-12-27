@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * @author Adel Permet de déterminer les informations de base d'un fichier donné
+ * @author Adel, Paul Permet de déterminer les informations de base d'un fichier donné
  *         : -son extension -son type Mime -sa taille
  */
 public class FileInfo extends ToScan {
