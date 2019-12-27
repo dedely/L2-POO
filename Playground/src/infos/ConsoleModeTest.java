@@ -1,6 +1,6 @@
 package infos;
 
-public class TestFileInfos {
+public class ConsoleModeTest {
 
 	public static void main(String[] args) {
 		Command consoleInput = new Command(args);
