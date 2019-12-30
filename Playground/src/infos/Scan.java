@@ -18,7 +18,7 @@ public class Scan {
 	private String[] extensionInfos;
 	private boolean foundExtensionInDatabase;
 	private Boolean anomalyDetected;
-	private Result result;
+	//private Result result;
 
 	public Scan(FileInfo file) {
 		this.file = file;
@@ -29,7 +29,7 @@ public class Scan {
 		}
 		anomalyDetected = anomaly();
 		
-		result = new Result(file.toString(), this.toString(), anomalyDetected.toString());
+		//result = new Result(file.toString(), this.toString(), anomalyDetected.toString());
 	}
 
 	/**
@@ -126,16 +126,12 @@ public class Scan {
 		}
 	}
 
-	public boolean getAnomaly() {
+	public Boolean getAnomaly() {
 		return anomalyDetected;
 	}
 
 	public void setAnomaly(boolean newState) {
 		anomalyDetected = newState;
-	}
-
-	public Result getResult() {
-		return result;
 	}
 
 	public String toString() {

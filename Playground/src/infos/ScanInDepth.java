@@ -5,21 +5,23 @@ package infos;
  */
 public class ScanInDepth extends Scan {
 	IntegrityInterface integrity;
-
+	Result result;
+	
 	public ScanInDepth(FileInfo file) {
 		super(file);
 		try {
-			checkIntegrity(file);
+			checkIntegrity();
 		} catch (IntegrityTestUnavailableException e) {
 			System.err.println(e.getMessage());
 		}
+		result = new Result(file.toString(), this.toString(), getAnomaly().toString());
 	}
 
 	/**
 	 * @param file
 	 * @throws IntegrityTestUnavailableException
 	 */
-	public void checkIntegrity(FileInfo file) throws IntegrityTestUnavailableException {
+	public void checkIntegrity() throws IntegrityTestUnavailableException {
 		if (getExtensionInfos() != null && getExtensionInfos().length > 3) {
 			switch (getExtensionInfos()[3]) {
 			case "i": // image
@@ -29,7 +31,7 @@ public class ScanInDepth extends Scan {
 				integrity = new ZipIntegrity(getFile());
 				break;
 			default:
-				throw new IntegrityTestUnavailableException(file.getFileExtension());
+				throw new IntegrityTestUnavailableException(getFile().getFileExtension());
 			}
 		}
 		if (integrity != null && !integrity.getIntegrity()) {
@@ -37,6 +39,10 @@ public class ScanInDepth extends Scan {
 		}
 	}
 
+	public Result getResult() {
+		return result;
+	}
+	
 	public String toString() {
 		String tmp = super.toString();
 		if (integrity != null) {
