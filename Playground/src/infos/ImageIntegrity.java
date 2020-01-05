@@ -23,10 +23,10 @@ public class ImageIntegrity implements IntegrityInterface {
 	public boolean validatedIntegrity(File file) {
 		boolean isImage = false;
 		try {
-			BufferedImage bimg = ImageIO.read(file);
-			width = bimg.getWidth();
-			height = bimg.getHeight();
+			BufferedImage bimg = ImageIO.read(file);		
 			if (bimg != null) {
+				width = bimg.getWidth();
+				height = bimg.getHeight();
 				isImage = true;
 			}
 		} catch (IOException e) {
