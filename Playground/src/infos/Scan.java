@@ -25,7 +25,8 @@ public class Scan {
 		try {
 			extensionInfos = searchExtensionInfosInDatabase();
 		} catch (ExtensionNotFoundException e) {
-			System.err.println(e.getMessage());
+			//System.err.println(e.getMessage());
+			//we ignore it.
 		}
 		anomalyDetected = anomaly();
 		
